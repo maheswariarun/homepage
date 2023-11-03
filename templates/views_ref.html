@@ -1,0 +1,39 @@
+from dentry_app.models import Product,Cart
+
+def addcart(request,pid):
+    if request.user.is_authenticated:
+        userid=request.user.id
+        u=User.objects.filter(id=userid)
+        p=Product.objects.filter(id=pid)
+        print(u[0])
+        q1=Q(uid=u[0])
+        q2=Q(pid=p[0])
+        c=Cart.objects.filter(q1 & q2)
+        n=len(c)
+        if n == 1:
+            context={}
+            context['products']=p 
+            context['msg']="Already exsist"
+        else:       
+            c1=Cart.objects.create(uid=u[0],pid=p[0])
+            c1.save()
+            context={}
+            context['products']=p   
+            context['success']="Successfully added"  
+        return render(request,'product_details.html',context)
+    else:
+        return redirect("/login")
+        
+def viewcart(request):
+    request.user.id
+    c=Cart.objects.filter(uid=request.user.id)
+    print(c[0])
+    context={}
+    context['products']=c
+    return render(request,'cart.html',context)
+
+def remove(request,cid):
+    p=Cart.objects.filter(id=cid)
+    p.delete()
+    
+    return render(request,'cart.html')

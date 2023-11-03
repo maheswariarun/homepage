@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'main'%}
+
+
+<div class="row mx-auto p-2"><!--row for Iamge and product-->
+    
+    {% for x in products %}
+    
+        
+                  <div class="col-md-2">    
+                    <a href="#"><img class="img m-2" width="60%" src="{{x.pimage_a.url}}" alt="Responsive image"></a>
+                    <a href="#"><img class="img m-2" width="60%" src="{{x.pimage_b.url}}" alt="Responsive image"></a>
+                    <a href="#"><img class="img m-2" width="60%" src="{{x.pimage_c.url}}" alt="Responsive image"></a>
+                    <a href="#"><img class="img m-2" width="60%" src="{{x.pimage_d.url}}" alt="Responsive image"></a>
+                  </div>
+  
+       
+        <div class="col-md-3">
+              <img class="img-fluid" src="{{x.pimage.url}}" alt="Responsive image">
+   
+        </div>
+           
+<!--image field ends-->
+
+            <div class="col-md-1">
+              <button class="btn btn-primary" value="Share"> <i class="bi bi-share-fill"></i> Share</button>
+            </div>
+
+            <div class="col-md-5">
+            <p><h2>{{x.name}}</h2></p>
+            
+            <a href="#">Visit this Honorstore</a><br>
+          
+            <span class = "fa fa-star checked"></span>  
+            <span class = "fa fa-star checked"></span>  
+            <span class = "fa fa-star checked"></span>  
+            <span class = "fa fa-star checked"></span>  
+            <!-- To display unchecked star rating icons -->  
+            <span class = "fa fa-star unchecked"></span>
+           <HR>
+
+
+            <p><strong></strong>&nbsp;&nbsp;{{x.country}}</p>
+            <p><strong>Event Name</strong>&nbsp;&nbsp;{{x.event}}</p>
+            <p><strong>Product Catagory:</strong>&nbsp;&nbsp;{{x.cat}}</p>
+            <p><strong>Product Description:</strong>&nbsp;&nbsp;{{x.pdetails}}</p>
+           
+
+           <a href="/addcart/{{x.id}}"> <button type="button" class="btn btn-secondary btn-lg">Add in List</button></a>
+           <a href="/viewcart"> <button type="button" class="btn btn-secondary btn-lg">View List</button></a>
+            <p>
+            {% if success %}
+                <div class="alert alert-success">
+                    {{success}}
+                </div>
+            {% endif %}
+
+            {% if msg %}
+                <div class="alert alert-danger">
+                    {{msg}}
+                </div>
+
+            {% endif %}
+            </p>
+        </div> 
+    {% endfor %}
+    
+
+</div><!--End of row for Iamge and product-->
+<!--main ends-->
+{% endblock 'main' %}

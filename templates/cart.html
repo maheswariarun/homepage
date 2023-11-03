@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'main'%}
+<!---cart start-->
+<div class="row mt-5">
+   
+    <div class="col-md-3">
+        {% for x in products %}
+            {% if forloop.counter == 1 %}
+        <h5 class=" text-black p-2 ms-3">Customer Details</h5>
+        <hr>
+        <p class="p ms-3 "><strong>First Name:</strong>&nbsp;&nbsp;&nbsp;{{x.uid.first_name}}</p>
+        <p class="p ms-3 "><strong>Last Name:</strong>&nbsp;&nbsp;&nbsp;{{x.uid.last_name}}</p>
+        <p class="p ms-3 "><strong>Email:</strong>&nbsp;&nbsp;&nbsp;{{x.uid.email}}</p>
+        {% endif %}
+    {% endfor %}
+    </div>
+            <!---customer and product details starts-->
+                <div class="col-md-8 mt-3">
+                
+                    <h5>Product Details:</h5>
+                    <hr>
+                    <table class="table">
+                       
+                            <tr><th>Product Name:</th>
+                            <th>Event Name:</th>
+                            <th>Product Catagory:</th>
+                            <th>Country</th></tr> 
+                            {% for x in products %}
+                         
+                               <TR> <td>{{x.pid.name}}</td>
+                                <td>{{x.pid.event}}</td>
+                                <td>{{x.pid.cat}}</td>
+                                <td>{{x.pid.country}}</td>
+                              
+                                <td><a href="/remove/{{x.id}}"><button class="btn btn-danger">Remove</button></a></td></tr>
+                           
+                        {% endfor %}    
+<!--<td><a href="/remove/{{x.id}}"><button class="btn btn-danger">Remove</button></a></td></tr>#-->
+                    </table>       
+                               
+                </div>
+            </div><!---customer and product details end-->
+    </div><!---col1 end-->
+       
+   <!-- <div class="col-md-3">
+        <h5 class="bg-dark-subtle text-black p-2">Total Amount</h5>
+            <hr>
+            <p><strong>Total(2 items):</strong>Rs.5000</p>
+            <p><strong>Total Amount:</strong>Rs.5000</p>
+            <a href=""><button class="btn btn-danger">Place order</button></a>
+
+    </div>-->
+</div>
+{% endblock 'main' %}

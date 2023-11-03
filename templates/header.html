@@ -1,0 +1,75 @@
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+        <link rel="stylesheet" href="{% static 'asset/css/bootstrap.min.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'asset/css/style.css' %}"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      </head>
+
+    <body>
+ <!--Nav bar starts-->
+    <!--<ul class="nav text-white" style="background-color:rgb(12, 12, 61)">-->
+      
+        <div class="col-md-12 bg-success text-dark bg-opacity-50 p-4 ">
+          <strong>Shoppy World</strong>
+        </div>
+      </div>
+        <nav class="navbar navbar-expand-lg bg-danger-subtle p-3" >
+          
+            <div class="container-fluid">
+                          
+                <a class="navbar-brand " href="#">Event | List</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon text-white"></span>
+                  </button>
+
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav col-md-9">
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/home"><B>Home</b></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#"><b>List</b></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/viewcart"><B>Event</B></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/home"><B>About Us</B></a>
+                  </li>                
+                </ul>
+
+                {% if user.is_authenticated%}
+                  <ul class="navbar-nav col-md-3 mx-auto">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                    <ul class="navbar-nav">
+                      <li class="nav-item">
+                      <label for="input1" class="nav-link"><strong>Welcome!&nbsp;{{user.get_username}}</strong></label>
+                      </li>
+                    </ul>
+                {% else %}
+                <ul class="navbar-nav col-md-3 mx-auto">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/login"><b>Login</b></a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="/register"><b>Register</b></a>
+                    </li>
+                  </ul>
+                {% endif %}  
+              </div>
+            </div>
+          </nav>  
+    <!--Navbar ends-->
+    <script src="{% static 'asset/js/popper.min.js' %}"></script><!--popper file for dropdown step1-->
+    <script src="{% static 'asset/js/bootstrap.min.js' %}"></script><!--linking bootstrap.min step2-->
+    </body>
+</body>
+</html>

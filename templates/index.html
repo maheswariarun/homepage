@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'main'%}
+
+<div class="row mt-2 bg-success bg-opacity-10"> <!--Row1 start --> 
+    <div class="col-md-12  mx-auto">    
+        <div class="row"><!--row-a start-->
+            {% for x in products %}
+                <div class="col-md-3 mx-auto"><!--col1 for card-->
+                    <div class="card"><!--card star-->
+                        <div class="col-md-5 p-2">
+                            <figure class="figure">
+                                <a href="/home"><img src="{{x.pimage.url}}"class="figure-img img-fluid rounded" alt="..."></a>  
+                                {% if x.cat == 1 %}  
+                                    <figcaption class="figure-caption"><strong>Books</strong></figcaption>
+                                {% elif x.cat == 2 %}
+                                    <figcaption class="figure-caption"><strong>Jewellery</strong></figcaption>
+                                {% else %}
+                                    <figcaption class="figure-caption"><strong>Clothes</strong></figcaption>      
+                                {% endif %}
+                            </figure><!--col-md-2 end-->
+                            </div>
+                            <div class="col-md-12">
+                            <a href="pdetails/{{x.id}}" class="btn btn-primary text-white">See Description</a>
+                            </div>
+                        
+                    </div><!--card end-->
+                </div><!--col1 end-->
+            {% endfor %}
+        </div><!--row-a end-->              
+    </div><!--filter end-->
+<!--next products details-->
+<hr>
+
+        {% if display %}
+        {% for x in products %}
+            <h5>{{x.id}}</h5>
+        {% endfor %}
+        {% endif%}
+    
+</div> <!--row 1 end-->
+
+{% endblock 'main'%}
+
+

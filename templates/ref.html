@@ -1,0 +1,163 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'asset/css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'asset/css/style.css' %}"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"/>
+    
+</head>
+<body>
+<!--Login starts-->
+<div class="container-fluid">
+    <div class="row p-3 mx-auto"><!--row1 starts-->
+   
+        <div class="col-md-4 bg-light p-3 mx-auto shadow">
+            <h3>Login</h3>
+                <form>
+                    <div class="col-mb-3 mt-4">
+                        <label for="input1" class="form-label"><b>Email address:</b></label>
+                        <input type="email" class="form-control" name="uemail" id="input1" placeholder="name@example.com">
+                    </div>
+                    <div class="col-mb-3">
+                        <label for="input2" class="form-label"><b>Phone:</b></label>
+                        <input type="password" class="form-control" name="upass" id="input2">
+                    </div>
+                    <div class="d-grid gap-2 mt-4">
+                        <button class="btn btn-primary" type="button"><b>Login</b></button>
+                    </div>
+   
+                </form>
+   
+        </div>    
+     
+    </div>
+</div>
+<!--login ends-->
+
+
+<!--Registration start-->
+    <div class="container-fluid">
+        <div class="row p-3 bg-danger-subtle text-emphasis-danger">
+            <div class="col-md-6 bg-light p-3 mx-auto shadow">
+                <form method="POST" action="/register">
+                    {% csrf_token %}
+                    <h5>Registration Form</h5>
+                         
+    
+    
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <label for="input1">Enter First Name:</label>
+                            <input type="text" class="form-control mt-3" id="input1" name="fname" placeholder="First name">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="input2">Enter Last Name:</label>
+                            <input type="text" class="form-control mt-3" id="input2" name="lname"placeholder="Last name">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-8">
+                            <label for="input3">Enter Email:</label>
+                            <input type="email" class="form-control mt-3" id="input3" name="uemail" placeholder="Email@">
+                        </div>
+                       
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-5">
+                            <label for="input4">Enter Password:</label>
+                            <input type="password" class="form-control mt-3" id="input4" name="upass" placeholder="password">
+                        </div>
+                     
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-5">
+                            <label for="input5">Confirm Password:</label>
+                            <input type="password" class="form-control mt-3" id="input5" name="ucpass" laceholder="password">
+                        </div>
+                    </div>
+                   
+                    <div class="row mt-3">
+                        <div class="col" style="text-align:center;">
+                            <input type="submit" class="btn btn-outline-dark" value="Register">
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+ <!--registration ends-->   
+
+ <!--index page starts-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 bg-danger">
+            Filter
+        </div>
+        <div class="col-md-8 bg-success">
+            Product
+        </div>   
+    </div>
+ </div>
+<!--index page ends-->
+    <script src="asset/js/popper.min.js"></script><!--popper file for dropdown step1-->
+<script src="asset/js/bootstrap.min.js"></script><!--linking bootstrap.min step2-->
+</body>
+</html>
+
+
+<div class="col-md-10">
+    
+    </div>  
+
+
+
+
+    <div class="col-md-10">
+        
+      <!--end of product end-->
+    </div>  
+   
+
+    <div class="col-md-12"><!--caurosol images starts-->
+        <div id="carouselExample" class="carousel slide">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="{% static ''%}" class="tales" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="{% static ''%}" class="tales" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="{% static ''%}" class="tales" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+                 
+        </div> 
+
+        <form action='/range'>
+            <div class="mb-3">
+                <label for="input1" class="form-label">Maximum Value</label>
+                <input type="number" class="form-control"  name="min" id="input1" placeholder="maximum value">
+              </div>
+              <div class="mb-3">
+                <label for="input2" class="form-label">Minimum Value</label>
+                <input type="number" class="form-control" name="max" id="input2" placeholder="minimum value">
+              </div>
+              <div class="mb-3">
+                   <input type="submit" class="btn btn-info" value="search">
+              </div>
+        </form>
+
+        
